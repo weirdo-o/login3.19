@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mess</title>
+</head>
+<style>
+    .box{
+        width: 500px;
+        height:300px;
+        position: fixed;
+        top:0;
+        left: 0;
+        bottom:0;
+        right:0;
+        margin:auto;
+        background: #f0f0f0;
+    }
+    .top{
+        width: 100%;;
+        height: 80px;
+        background: skyblue;
+        text-align: center;
+        font-size: 24px;
+        line-height: 80px;
+    }
+    .bottom{
+        width: 100%;;
+        height: 220px;
+        text-align: center;
+    }
+    h2{
+        margin-top: 60px;
+        font-size: 20px;
+    }
+    span{
+        color: red;
+    }
+</style>
+<body>
+    <div class="box">
+        <div class="top">提示信息</div>
+        <div class="bottom">
+            <h2><?php echo $mess; ?></h2>
+            <p>
+                <span>3</span>秒后自动跳转，点击 <a href="<?php echo $href; ?>">立即跳转</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    let span=document.querySelector('span')
+    let time=3
+    let a=document.querySelector('a')
+    setInterval(function () {
+        time--
+        span.innerHTML=time
+        if(time==0){
+            location.href=a.href
+        }
+    },1000)
+
+
+</script>
